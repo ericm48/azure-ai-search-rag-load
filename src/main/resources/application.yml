@@ -1,0 +1,26 @@
+#
+# application.yml
+#
+debug: false
+spring:
+  ai:
+    azure:
+      openai:
+        api-key: ${SPRING_AI_AZURE_OPENAI_API_KEY}
+        endpoint: ${SPRING_AI_AZURE_OPENAI_ENDPOINT}
+
+        chat:
+          options:
+            deployment-name: ${SPRING_AI_AZURE_OPENAI_CHAT_OPTIONS_DEPLOYMENT_NAME}
+        embedding:
+          options:
+            deployment-name: ${SPRING_AI_AZURE_OPENAI_EMBEDDING_OPTIONS_DEPLOYMENT_NAME}
+
+    vectorstore:
+      azure:
+        api-key: ${SPRING_AI_AZURE_VECTORSTORE_AZURE_API_KEY}
+        url: ${SPRING_AI_AZURE_VECTORSTORE_AZURE_URL}
+        index-name: ${SPRING_AI_AZURE_VECTORSTORE_AZURE_INDEX_NAME}
+
+
+
