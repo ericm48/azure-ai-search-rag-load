@@ -1,4 +1,4 @@
-# Spring AI Retrieval Augmented Generation with Azure OpenAI Azure Search Index
+# Spring AI Retrieval Augmented Generation with Azure OpenAI and Azure Search Index
 
 ## Introduction
 
@@ -16,7 +16,7 @@ This process is informally referred to as 'stuffing the prompt'.
 
 This project demonstrates the first step and uses the Azure AI Search Vector Database.
 
-The second and third steps are done in the application in the repository https://github.com/spring-cli-projects/ai-azure-rag-chat
+The second and third steps are done in the application in the repository https://github.com/ericm48/azure-ai-search-rag-chat
 
 
 
