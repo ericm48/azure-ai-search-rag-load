@@ -25,11 +25,17 @@ public class DataLoadingJob implements CommandLineRunner {
 
 	private ApplicationContext applicationContext;
 
-	@Value("classpath:/data/medicaid-wa-faqs-en-US.pdf")
-	private Resource pdfResource;
+	@Value("classpath:/data/AllSaints-en-US-v1.pdf")
+	private Resource pdfResourceAll;
 
-	@Value("classpath:/data/medicaid-wa-faqs-en-US-v2.pdf")
-	private Resource pdfResource2;
+	@Value("classpath:/data/SaintHormisdas-en-US-v1.pdf")
+	private Resource pdfResourceHormisdas;
+
+	@Value("classpath:/data/SaintMaryMacKillop-en-US-v1.pdf")
+	private Resource pdfResourceMacKillop;
+
+	@Value("classpath:/data/SaintOswald-en-US-v1.pdf")
+	private Resource pdfResourceOswald;
 
 	private final VectorStore vectorStore;
 
@@ -41,8 +47,8 @@ public class DataLoadingJob implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) {
-		load(pdfResource, 1);
-		load(pdfResource2, 2);
+		load(pdfResourceAll, 1);
+//		load(pdfResource2, 2);
 		System.exit(0);
 	}
 	public void load(Resource resource, int version)
@@ -67,7 +73,8 @@ public class DataLoadingJob implements CommandLineRunner {
 		List<Document> splitDocuments = tokenTextSplitter.apply(pdfReader.get());
 		// tag as external knowledge in the vector store's metadata
 		for (Document splitDocument : splitDocuments) {
-			splitDocument.getMetadata().put("filename", pdfResource.getFilename());
+			//splitDocument.getMetadata().put("filename", pdfResource1.getFilename());
+			splitDocument.getMetadata().put("filename", resource.getFilename());
 			splitDocument.getMetadata().put("version", "" + version);
 		}
 
